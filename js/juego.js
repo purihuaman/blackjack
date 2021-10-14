@@ -10,12 +10,13 @@ const miModulo = (() => {
 
 	const tiposCarta 					= ['C', 'D', 'H', 'S'],
 				especiales 					= ['A', 'J', 'Q', 'K'],
-				buttonNuevo 				= document.querySelector('.button-new'),
-				buttonPedir 				= document.querySelector('.button-primary'),
-				buttonDetener 			= document.querySelector('.button-danger'),
+				buttonNuevo 				= document.getElementById('button-new'),
+				buttonPedir 				= document.getElementById('button-primary'),
+				buttonDetener 			= document.getElementById('button-danger'),
 				puntosHtml 					= document.querySelectorAll('small'),
-				containerCartas			= document.querySelectorAll('.container-card'),
-				modalGanador				= document.querySelector('.modal');
+				containerCartas			= document.querySelectorAll('.blackjack__card'),
+				modalGanador				= document.getElementById('blackjack-modal'),
+				modalSpanPlayer 		= document.getElementById('modal-player');
 
 	let deck 							= [],
 			puntosJugadores   = [];
@@ -36,8 +37,10 @@ const miModulo = (() => {
 
 		buttonDetener.disabled = false;
 		buttonPedir.disabled = false;
-		
-		modalGanador.classList.remove('modal--show');
+		buttonDetener.classList.remove('button-disabled');
+		buttonPedir.classList.remove('button-disabled');
+
+		modalGanador.classList.remove('blackjack-modal--active');
 	}
 
 	// Crea un nuevo deck ( varaja )
@@ -84,14 +87,14 @@ const miModulo = (() => {
 	// Funcion crear imagen carta
 	const crearCarta = ( carta, turno ) => {
 		const imageCarta = document.createElement('img');
-		imageCarta.classList.add('card');
+		imageCarta.classList.add('blackjack__image');
 		imageCarta.src = `assets/cartas/${ carta }.png`;
 		containerCartas[turno].appendChild( imageCarta );
 	}
 
 	const ventaModalGanador = ( texto ) => {
-		modalGanador.classList.add('modal--show');
-		modalGanador.firstElementChild.firstElementChild.textContent = texto;
+		modalGanador.classList.add('blackjack-modal--active');
+		modalGanador.firstElementChild.children[1].firstElementChild.textContent = texto;
 	}
 	
 	// Funcion determina el ganador
@@ -99,9 +102,9 @@ const miModulo = (() => {
 		const [ puntosMinimos, puntosComputadora ] = puntosJugadores;
 		setTimeout(() => {
 			if ( puntosComputadora === puntosMinimos ) { ventaModalGanador('Nadie gana :(');}
-			else if ( puntosMinimos > 21 ) { ventaModalGanador('Computadora gana!'); }
-			else if ( puntosComputadora > 21 ) { ventaModalGanador('Jugador gana ❤️!'); }
-			else { ventaModalGanador('Computadora gana!'); }
+			else if ( puntosMinimos > 21 ) { ventaModalGanador('Computadora!'); }
+			else if ( puntosComputadora > 21 ) { ventaModalGanador('1 ❤️!'); }
+			else { ventaModalGanador('Computadora!'); }
 		}, 100);
 	}
 
@@ -129,9 +132,12 @@ const miModulo = (() => {
 		if( puntosJugador > 21 ) {
 			buttonPedir.disabled = true;
 			buttonDetener.disabled = true;
+			buttonDetener.classList.add('button-disabled');
+			buttonPedir.classList.add('button-disabled');
 			turnoComputadora( puntosJugador );
 		} else if( puntosJugador === 21 ) {
 			buttonDetener.disabled = true;
+			buttonDetener.classList.add('button-disabled');
 			turnoComputadora( puntosJugadores[1] );
 		}
 	});
@@ -139,6 +145,8 @@ const miModulo = (() => {
 	buttonDetener.addEventListener('click', () => {
 		buttonPedir.disabled = true;
 		buttonDetener.disabled = true;
+		buttonDetener.classList.add('button-disabled');
+		buttonPedir.classList.add('button-disabled');
 		turnoComputadora( puntosJugadores[0] );
 	});
 

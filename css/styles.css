@@ -1,0 +1,409 @@
+/*
+* Prefixed by https://autoprefixer.github.io
+* PostCSS: v8.3.6,
+* Autoprefixer: v10.3.1
+* Browsers: last 4 version
+*/
+
+
+:root {
+	/* Medidas de media querys */
+	--table-width: 768px;
+	--desktop-width: 1024px;
+	--large-desktop-width: 1400px;
+
+	/* COLORS */
+	--bg-color: #F7F7F8;
+	--text-color: #262626;
+	--bg-card-color: #F3F6F3;
+	--bg-rgba: rgba(247, 247, 248, 0.25);
+
+	--white-RGBA: rgb(251, 251, 254, .5);
+	
+
+	--primary-color: 				#009FFF;
+	--primary-color--hover: #0290FE;
+
+	/* Second color */
+	--second-color: 			 #9147ff;
+	--second-color--hover: #823fe7;
+
+
+	/* Fonts Family */
+	--main-font: 'Poppins', sans-serif;
+
+	/* Fonts size */
+	--h1-font-size: 2rem;
+	--h2-font-size: 1.5rem;
+	--h3-font-size: 1.25rem;
+	--normal-font-size: 1rem;
+	--small-font-size: 0.85rem;
+
+	/* Heights */
+	--header-height: 4rem;
+
+	/* Paddings */
+	--small-padding: 0.5em;
+	--normal-padding: 1em;
+	--large-padding: 1.5em;
+	--x-large-padding: 2em;
+
+	/* Margins */
+	--small-margin: 0.5em;
+	--normal-margin: 1em;
+	--large-margin: 1.5em;
+	--x-large-margin: 2em;
+
+	/* Border-radius */
+	--border-radius: 0.625em;
+
+	/* Z-index */
+	--z-index300: 9999;
+
+	/* grid gaps */
+	--small-gap: 0.5rem;
+	--normal-gap: 1rem;
+	--large-gap: 1.5rem;
+	--x-large-gap: 2rem;
+
+	/* Box-shadow */
+	--box-shadow: 5px 0 15px rgb(0 0 0 /0.2);
+	--box-shadow-second: 0px 4px 40px rgba(0, 0, 0, 0.15);
+
+	/* Transition */
+	--transition: color 0.1s, background-color 0.2s;
+}
+
+@media screen and (min-width: 1024px ) {
+	body {
+		/* Fonts size */
+		--h1-font-size: 2.5rem;
+		--h2-font-size: 1.75rem;
+		--h3-font-size: 1.50rem;
+		--h4-font-size: 1.20rem;
+		--normal-font-size: 1.1rem;
+		--small-font-size: .95rem;
+
+		/* Heights */
+		--header-height: 4.5rem;
+	}
+}
+body.dark {
+	--text-color: #F7F7F8;
+	--bg-color: #262626;
+	--bg-card-color: #303030;
+	--scroll-color: #404040;
+
+	--bg-rgba: rgba(48, 48, 48, 0.25);
+}
+* {
+	scroll-behavior: smooth;
+}
+*,
+*::after,
+*::before{
+	-webkit-box-sizing:border-box;
+	        box-sizing:border-box;
+}
+html {
+	line-height:1.6;
+	font-size: 16px;
+	-webkit-text-size-adjust:100%;
+}
+h1 { font-weight: 800;}
+h2 { font-weight: 500;}
+
+img {
+	max-width:100%;
+	border-style:none;
+	display:block
+}
+
+body {
+	display: -webkit-box;
+	display: -ms-flexbox;
+	display: flex;
+	-webkit-box-orient: vertical;
+	-webkit-box-direction: normal;
+	    -ms-flex-direction: column;
+	        flex-direction: column;
+	-webkit-box-pack: justify;
+	    -ms-flex-pack: justify;
+	        justify-content: space-between;
+
+	margin:0;
+	min-height: 100vh;
+	font-family:var(--main-font);
+	font-size: var(--normal-font-size);
+	font-weight: 300;
+	color: var(--text-color);
+	background-image: -webkit-gradient(linear, left bottom, left top, from(rgba(38, 38, 38, 0.9)), to(rgba(38, 38, 38, 0.9))),url('./../assets/image/blackjack.jpg');
+	background-image: -o-linear-gradient(bottom, rgba(38, 38, 38, 0.9), rgba(38, 38, 38, 0.9)),url('./../assets/image/blackjack.jpg');
+	background-image: linear-gradient(0deg, rgba(38, 38, 38, 0.9), rgba(38, 38, 38, 0.9)),url('./../assets/image/blackjack.jpg');
+	background-repeat: no-repeat;
+	background-size: cover;
+	background-position: center;
+}
+
+.container {
+	max-width: var(--large-desktop-width);
+	margin-left: auto;
+	margin-right: auto;
+}
+/* Estilos generales */
+.header,
+.main,
+.footer {
+	padding: 0 var(--small-padding);
+}
+/* Header */
+.header {
+	-webkit-box-shadow: var(--box-shadow-second);
+	        box-shadow: var(--box-shadow-second);
+}
+.header__content {
+	height: var(--header-height);
+	display: -webkit-box;
+	display: -ms-flexbox;
+	display: flex;
+	-webkit-box-pack: justify;
+	    -ms-flex-pack: justify;
+	        justify-content: space-between;
+	-webkit-box-align: center;
+	    -ms-flex-align: center;
+	        align-items: center;
+}
+
+
+/* Logotipo */
+.logotipo {}
+.logotipo__link {
+	display: block;
+	text-decoration: none;
+	-webkit-transition: height .3s;
+	-o-transition: height .3s;
+	transition: height .3s;
+	height: calc( var(--header-height) - 5px);
+	overflow: hidden;
+}
+.logotipo__image {
+	height: 100%;
+}
+
+/* Contactos */
+.contact {
+	padding: var(--small-padding) 0;
+	display: -webkit-box;
+	display: -ms-flexbox;
+	display: flex;
+	-webkit-box-align: center;
+	    -ms-flex-align: center;
+	        align-items: center;
+	-webkit-box-pack: center;
+	    -ms-flex-pack: center;
+	        justify-content: center;
+	gap: var(--small-gap);
+}
+.contact__link {
+	display: inline-block;
+	text-decoration: none;
+	border-radius: 50%;
+	border: 1px solid transparent;
+	padding: var(--small-padding);
+	-webkit-transition: border .3s;
+	-o-transition: border .3s;
+	transition: border .3s;
+	-webkit-box-shadow: var(--box-shadow);
+	        box-shadow: var(--box-shadow);
+}
+.contact__link:hover {
+	border: 1px solid var(--second-color);
+}
+.contact__image {
+	height: 28px;
+	width: 28px;
+}
+.contact__link:last-child .contact__image {
+	-webkit-filter: invert(1);
+	        filter: invert(1);
+}
+
+
+/* Main */
+.main {
+	padding: var(--normal-padding) 0;
+}
+.main__content {
+	display: -ms-grid;
+	display: grid;
+	-ms-grid-rows: auto 1fr;
+	grid-template-rows: auto 1fr;
+}
+.main__header {
+	padding: var(--normal-padding);
+	text-align: center;
+}
+.title {
+	margin: 0;
+	font-size: var(--h1-font-size);
+}
+
+/* blackjack */
+.blackjack {
+	height: 100%;
+}
+.blackjack__header {
+	/* background-color: gray; */
+	padding: var(--small-padding) 0;
+	display: -webkit-box;
+	display: -ms-flexbox;
+	display: flex;
+	-webkit-box-pack: center;
+	    -ms-flex-pack: center;
+	        justify-content: center;
+	-webkit-box-align: center;
+	    -ms-flex-align: center;
+	        align-items: center;
+	gap: var(--normal-gap);
+}
+.blackjack__body {
+	display: -ms-grid;
+	display: grid;
+	-webkit-box-pack: center;
+	    -ms-flex-pack: center;
+	        justify-content: center;
+}
+.blackjack__player {}
+.blackjack__name {
+	padding: var(--normal-padding) 0;
+	text-align: center;
+}
+.blackjack__subtitle {
+	margin: 0;
+	font-size: var(--h2-font-size);
+}
+
+.blackjack__card {
+	height: 120px;
+}
+.blackjack__image {
+	position: relative;
+	display: inline-block;
+	height: 120px;
+	margin-left: -30px;
+}
+
+/* Buttons */
+.button {
+	border: none;
+	outline: none;
+	cursor: pointer;
+	padding: var(--small-padding) var(--normal-padding);
+	font-size: var(--small-font-size);
+	font-weight: 300;
+	font-family: var(--main-font);
+	border-radius: var(--border-radius);
+	color: var(--text-color);
+	-webkit-transition: opacity .3s;
+	-o-transition: opacity .3s;
+	transition: opacity .3s;
+	-webkit-box-shadow: var(--box-shadow-second);
+	        box-shadow: var(--box-shadow-second);
+	text-transform: capitalize;
+}
+.button-new {
+	background-color: var(--second-color);
+}
+.button-primary {
+	background-color: var(--primary-color);
+}
+.button-danger {
+	background-color: #FF5372;
+}
+.button:hover{
+	opacity: .9;
+}
+.button-disabled {
+	opacity: .8;
+}
+
+/* Modal */
+.blackjack-modal {
+	position: fixed;
+	bottom: 120px;
+	z-index: var(--z-index300);
+	display: -webkit-box;
+	display: -ms-flexbox;
+	display: flex;
+	-webkit-box-pack: center;
+	    -ms-flex-pack: center;
+	        justify-content: center;
+	-webkit-box-align: center;
+	    -ms-flex-align: center;
+	        align-items: center;
+	width: 100%;
+	min-height: calc(60vh - var(--header-height) );
+	-webkit-transform: translateY(150%);
+	    -ms-transform: translateY(150%);
+	        transform: translateY(150%);
+	-webkit-transition: -webkit-transform .3s;
+	transition: -webkit-transform .3s;
+	-o-transition: transform .3s;
+	transition: transform .3s;
+	transition: transform .3s, -webkit-transform .3s;
+}
+.blackjack-modal--active {
+	-webkit-transform: translateY(0);
+	    -ms-transform: translateY(0);
+	        transform: translateY(0);
+}
+.blackjack-modal__content {
+	min-width: 320px;
+	max-width: 500px;
+	display: -webkit-box;
+	display: -ms-flexbox;
+	display: flex;
+	-webkit-box-orient: vertical;
+	-webkit-box-direction: normal;
+	    -ms-flex-direction: column;
+	        flex-direction: column;
+	-webkit-box-pack: center;
+	    -ms-flex-pack: center;
+	        justify-content: center;
+	-webkit-box-align: center;
+	    -ms-flex-align: center;
+	        align-items: center;
+	padding: var(--normal-padding);
+	background-color: var(--bg-color);
+	-webkit-transition: min-width .9s;
+	-o-transition: min-width .9s;
+	transition: min-width .9s;
+	text-align: center;
+	-webkit-box-shadow: var(--box-shadow-second);
+	        box-shadow: var(--box-shadow-second);
+	border-radius: var(--border-radius);
+}
+.blackjack-modal__icon {
+	height: 32px;
+	width: 32px;
+}
+.blackjack-modal__player {
+	margin: 0;
+	opacity: .8;
+}
+.blackjack-modal__text {
+	font-size: var(--h3-font-size);
+	font-weight: 500;
+	margin: var(--small-margin) 0;
+}
+
+/* Footer */
+.footer {
+	-webkit-box-shadow: var(--box-shadow-second);
+	        box-shadow: var(--box-shadow-second);
+	margin-top: auto;
+}
+.footer__content {
+	padding: var(--normal-padding);
+	text-align: center;
+}
