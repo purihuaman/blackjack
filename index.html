@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="es">
+	<head>
+		<meta charset="UTF-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<title>Blackjack</title>
+		<link rel="shortcut icon" href="assets/icons/logo-puri.svg" type="image/x-icon">
+		<link rel="stylesheet" href="css/style-min.css">
+	</head>
+	<body>
+		<header class="header">
+			<h1 class="title">Blackjack</h1>
+		</header>
+
+		<main class="main">
+
+			<div class="blackjack">
+				<div class="blackjack__container">
+					<button class="button button-new">Nuevo juego</button>
+					<button disabled='disabled' class="button button-primary">Pedir carta</button>
+					<button disabled='disabled' class="button button-danger">Detener</button>
+				</div>
+			</div>
+
+			<div class="player">
+				<div class="player__container">
+					<h2 class="subtitle">Jugador 1 - <small>0</small></h2>
+					<div class="player-card container-card" id="player-card">
+					</div>
+				</div>
+			</div>
+
+			<div class="computer">
+				<div class="computer__container">
+					<h2 class="subtitle">Computadora - <small>0</small></h2>
+					<div class="computer-card container-card" id="computer-card">
+					</div>
+				</div>
+			</div>
+
+			<section class="modal">
+				<div class="modal__container">
+					<p></p>
+				</div>
+			</section>
+		</main>
+
+		<footer class="footer">
+			<div class="footer__container">
+				<p>Diseñado por Pedro Purihuaman &copy; - 2021</p>
+			</div>
+		</footer>
+		
+		<script src="js/underscore-min.js"></script>
+		<script src="js/juego-min.js"></script>
+		<script>
+			document.querySelector('.button-new').addEventListener('click', () => {
+				miModulo.nuevoJuego();
+			});
+		</script>
+	</body>
+</html>
