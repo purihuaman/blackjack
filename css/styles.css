@@ -12,25 +12,38 @@
 	--desktop-width: 1024px;
 	--large-desktop-width: 1400px;
 
-	/* COLORS */
-	--bg-color: #F7F7F8;
-	--text-color: #262626;
-	--bg-card-color: #F3F6F3;
-	--bg-rgba: rgba(247, 247, 248, 0.25);
-
-	--white-RGBA: rgb(251, 251, 254, .5);
+	/* ==> Colores <== */
+	--grey-100: #8E8E93;
+	--grey-200: #636366;
+	--grey-300: #48484A;
+	--grey-400: #3A3A3C;
+	--grey-500: #2C2C2E;
+	--grey-600: #1C1C1E;
+	--title-color: #FBFBFB;
+	--text-color: #eff3f5;
 	
 
-	--primary-color: 				#009FFF;
-	--primary-color--hover: #0290FE;
+	/* ==> Primary color <== */
+	
+	--primary-color: #1192EE;
+	--primary-color-hover: #0A84FF;
+	--primary-color-rgba: #1192EE50;
 
-	/* Second color */
-	--second-color: 			 #9147ff;
-	--second-color--hover: #823fe7;
+
+	/* ==> Second color <== */
+	
+	--second-color:#B949F5;
+	--second-color-hover:#BD00FF;
+
+	/* ==> Third color <== */
+	
+	--first-red: rgba(255, 55, 95, 1);
+	--second-red-hover: rgba(255, 45, 85, 1);
 
 
 	/* Fonts Family */
-	--main-font: 'Poppins', sans-serif;
+	--heading-font: 'Poppins', sans-serif;
+	--main-font: 'Roboto', sans-serif;
 
 	/* Fonts size */
 	--h1-font-size: 2rem;
@@ -88,14 +101,7 @@
 		--header-height: 4.5rem;
 	}
 }
-body.dark {
-	--text-color: #F7F7F8;
-	--bg-color: #262626;
-	--bg-card-color: #303030;
-	--scroll-color: #404040;
 
-	--bg-rgba: rgba(48, 48, 48, 0.25);
-}
 * {
 	scroll-behavior: smooth;
 }
@@ -108,10 +114,9 @@ body.dark {
 html {
 	line-height:1.6;
 	font-size: 16px;
-	-webkit-text-size-adjust:100%;
 }
-h1 { font-weight: 800;}
-h2 { font-weight: 500;}
+h1 { font-weight: 700; font-family: var(--heading-font);}
+h2 { font-weight: 700; }
 
 img {
 	max-width:100%;
@@ -123,23 +128,16 @@ body {
 	display: -webkit-box;
 	display: -ms-flexbox;
 	display: flex;
-	-webkit-box-orient: vertical;
-	-webkit-box-direction: normal;
-	    -ms-flex-direction: column;
-	        flex-direction: column;
-	-webkit-box-pack: justify;
-	    -ms-flex-pack: justify;
-	        justify-content: space-between;
+	flex-direction: column;
+	justify-content: space-between;
 
 	margin:0;
 	min-height: 100vh;
 	font-family:var(--main-font);
 	font-size: var(--normal-font-size);
-	font-weight: 300;
+	font-weight: 400;
 	color: var(--text-color);
-	background-image: -webkit-gradient(linear, left bottom, left top, from(rgba(38, 38, 38, 0.9)), to(rgba(38, 38, 38, 0.9))),url('./../assets/image/blackjack.jpg');
-	background-image: -o-linear-gradient(bottom, rgba(38, 38, 38, 0.9), rgba(38, 38, 38, 0.9)),url('./../assets/image/blackjack.jpg');
-	background-image: linear-gradient(0deg, rgba(38, 38, 38, 0.9), rgba(38, 38, 38, 0.9)),url('./../assets/image/blackjack.jpg');
+	background-image: linear-gradient(0deg, rgba(28, 28, 30, 0.9), rgba(38, 38, 38, 0.9)),url('./../assets/image/blackjack.jpg');
 	background-repeat: no-repeat;
 	background-size: cover;
 	background-position: center;
@@ -150,28 +148,23 @@ body {
 	margin-left: auto;
 	margin-right: auto;
 }
+
 /* Estilos generales */
 .header,
 .main,
 .footer {
 	padding: 0 var(--small-padding);
 }
+
 /* Header */
 .header {
-	-webkit-box-shadow: var(--box-shadow-second);
-	        box-shadow: var(--box-shadow-second);
+	box-shadow: var(--box-shadow-second);
 }
 .header__content {
 	height: var(--header-height);
-	display: -webkit-box;
-	display: -ms-flexbox;
 	display: flex;
-	-webkit-box-pack: justify;
-	    -ms-flex-pack: justify;
-	        justify-content: space-between;
-	-webkit-box-align: center;
-	    -ms-flex-align: center;
-	        align-items: center;
+	justify-content: space-between;
+	align-items: center;
 }
 
 
@@ -180,10 +173,8 @@ body {
 .logotipo__link {
 	display: block;
 	text-decoration: none;
-	-webkit-transition: height .3s;
-	-o-transition: height .3s;
 	transition: height .3s;
-	height: calc( var(--header-height) - 5px);
+	height: calc( var(--header-height) - 10px);
 	overflow: hidden;
 }
 .logotipo__image {
@@ -196,12 +187,8 @@ body {
 	display: -webkit-box;
 	display: -ms-flexbox;
 	display: flex;
-	-webkit-box-align: center;
-	    -ms-flex-align: center;
-	        align-items: center;
-	-webkit-box-pack: center;
-	    -ms-flex-pack: center;
-	        justify-content: center;
+	align-items: center;
+	justify-content: center;
 	gap: var(--small-gap);
 }
 .contact__link {
@@ -210,11 +197,8 @@ body {
 	border-radius: 50%;
 	border: 1px solid transparent;
 	padding: var(--small-padding);
-	-webkit-transition: border .3s;
-	-o-transition: border .3s;
 	transition: border .3s;
-	-webkit-box-shadow: var(--box-shadow);
-	        box-shadow: var(--box-shadow);
+	box-shadow: var(--box-shadow);
 }
 .contact__link:hover {
 	border: 1px solid var(--second-color);
@@ -224,8 +208,7 @@ body {
 	width: 28px;
 }
 .contact__link:last-child .contact__image {
-	-webkit-filter: invert(1);
-	        filter: invert(1);
+	filter: invert(1);
 }
 
 
@@ -234,9 +217,7 @@ body {
 	padding: var(--normal-padding) 0;
 }
 .main__content {
-	display: -ms-grid;
 	display: grid;
-	-ms-grid-rows: auto 1fr;
 	grid-template-rows: auto 1fr;
 }
 .main__header {
@@ -246,6 +227,7 @@ body {
 .title {
 	margin: 0;
 	font-size: var(--h1-font-size);
+	color: var(--title-color);
 }
 
 /* blackjack */
@@ -255,15 +237,9 @@ body {
 .blackjack__header {
 	/* background-color: gray; */
 	padding: var(--small-padding) 0;
-	display: -webkit-box;
-	display: -ms-flexbox;
 	display: flex;
-	-webkit-box-pack: center;
-	    -ms-flex-pack: center;
-	        justify-content: center;
-	-webkit-box-align: center;
-	    -ms-flex-align: center;
-	        align-items: center;
+	justify-content: center;
+	align-items: center;
 	gap: var(--normal-gap);
 }
 .blackjack__body {
@@ -281,6 +257,7 @@ body {
 .blackjack__subtitle {
 	margin: 0;
 	font-size: var(--h2-font-size);
+	font-weight: 700;
 }
 
 .blackjack__card {
@@ -299,29 +276,32 @@ body {
 	outline: none;
 	cursor: pointer;
 	padding: var(--small-padding) var(--normal-padding);
-	font-size: var(--small-font-size);
-	font-weight: 300;
+	font-size: var(--normal-font-size);
+	font-weight: 700;
 	font-family: var(--main-font);
 	border-radius: var(--border-radius);
 	color: var(--text-color);
-	-webkit-transition: opacity .3s;
-	-o-transition: opacity .3s;
 	transition: opacity .3s;
-	-webkit-box-shadow: var(--box-shadow-second);
-	        box-shadow: var(--box-shadow-second);
+	box-shadow: var(--box-shadow-second);
 	text-transform: capitalize;
 }
 .button-new {
 	background-color: var(--second-color);
 }
+.button-new:hover {
+	background-color: var(--second-color-hover);
+}
 .button-primary {
 	background-color: var(--primary-color);
 }
-.button-danger {
-	background-color: #FF5372;
+.button-primary:hover {
+	background-color: var(--primary-color-hover);
 }
-.button:hover{
-	opacity: .9;
+.button-danger {
+	background-color: var(--first-red);
+}
+.button-danger:hover {
+	background-color: var(--second-red-hover);
 }
 .button-disabled {
 	opacity: .8;
@@ -332,55 +312,30 @@ body {
 	position: fixed;
 	bottom: 120px;
 	z-index: var(--z-index300);
-	display: -webkit-box;
-	display: -ms-flexbox;
 	display: flex;
-	-webkit-box-pack: center;
-	    -ms-flex-pack: center;
-	        justify-content: center;
-	-webkit-box-align: center;
-	    -ms-flex-align: center;
-	        align-items: center;
+	justify-content: center;
+	align-items: center;
 	width: 100%;
 	min-height: calc(60vh - var(--header-height) );
-	-webkit-transform: translateY(150%);
-	    -ms-transform: translateY(150%);
-	        transform: translateY(150%);
-	-webkit-transition: -webkit-transform .3s;
+	transform: translateY(150%);
 	transition: -webkit-transform .3s;
-	-o-transition: transform .3s;
 	transition: transform .3s;
 	transition: transform .3s, -webkit-transform .3s;
 }
 .blackjack-modal--active {
-	-webkit-transform: translateY(0);
-	    -ms-transform: translateY(0);
-	        transform: translateY(0);
+	transform: translateY(0);
 }
 .blackjack-modal__content {
 	min-width: 320px;
 	max-width: 500px;
-	display: -webkit-box;
-	display: -ms-flexbox;
 	display: flex;
-	-webkit-box-orient: vertical;
-	-webkit-box-direction: normal;
-	    -ms-flex-direction: column;
-	        flex-direction: column;
-	-webkit-box-pack: center;
-	    -ms-flex-pack: center;
-	        justify-content: center;
-	-webkit-box-align: center;
-	    -ms-flex-align: center;
-	        align-items: center;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
 	padding: var(--normal-padding);
-	background-color: var(--bg-color);
-	-webkit-transition: min-width .9s;
-	-o-transition: min-width .9s;
+	background-color: var(--grey-500);
 	transition: min-width .9s;
 	text-align: center;
-	-webkit-box-shadow: var(--box-shadow-second);
-	        box-shadow: var(--box-shadow-second);
 	border-radius: var(--border-radius);
 }
 .blackjack-modal__icon {
@@ -392,15 +347,15 @@ body {
 	opacity: .8;
 }
 .blackjack-modal__text {
-	font-size: var(--h3-font-size);
-	font-weight: 500;
+	font-size: var(--h2-font-size);
+	font-weight: 700;
+	color: var(--title-color);
 	margin: var(--small-margin) 0;
 }
 
 /* Footer */
 .footer {
-	-webkit-box-shadow: var(--box-shadow-second);
-	        box-shadow: var(--box-shadow-second);
+	box-shadow: var(--box-shadow-second);
 	margin-top: auto;
 }
 .footer__content {
